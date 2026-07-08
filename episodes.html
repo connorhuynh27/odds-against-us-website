@@ -1,0 +1,107 @@
+<meta charset="UTF-8">
+<title>Episodes - The Odds Against Us</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .nav-link { position: relative; }
+  .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: currentColor; transition: width .25s ease; }
+  .nav-link:hover::after { width: 100%; }
+  .card-hover { transition: transform .3s ease, box-shadow .3s ease; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15); }
+  .img-zoom { overflow: hidden; }
+  .img-zoom img { transition: transform .5s ease; }
+  .img-zoom:hover img { transform: scale(1.08); }
+  .btn-pop { transition: transform .2s ease, box-shadow .2s ease; }
+  .btn-pop:hover { transform: scale(1.05); }
+</style>
+
+<div class="min-h-screen bg-white text-[#767676] overflow-x-hidden">
+
+  <!-- Nav -->
+  <nav class="flex items-center justify-between px-6 md:px-10 py-5 border-b border-black/5">
+    <div class="flex items-center gap-8 text-[13px] font-semibold tracking-wide text-black uppercase">
+      <a href="index.html" class="nav-link hover:opacity-70">Home</a>
+      <a href="episodes.html" class="nav-link text-[#FFD900]">Episodes</a>
+      <a href="info.html" class="nav-link hover:opacity-70">Info</a>
+      <a href="reviews.html" class="nav-link hover:opacity-70">Reviews</a>
+      <a href="contact.html" class="nav-link hover:opacity-70">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <div class="max-w-6xl mx-auto px-6 md:px-10 pt-14 pb-6 reveal">
+    <h1 class="text-3xl font-bold text-black">All Episodes</h1>
+  </div>
+
+  <!-- Episodes list -->
+  <div class="max-w-3xl mx-auto px-6 md:px-10 pb-20">
+
+    <div class="space-y-6">
+
+      <!-- Episode 2 -->
+      <div class="flex gap-5 pb-6 border-b border-black/5 reveal card-hover rounded-xl p-3 -m-3">
+        <div class="img-zoom rounded-lg w-[150px] h-[150px] flex-shrink-0">
+          <img src="https://i.ytimg.com/vi/T4T4KmrCbjE/hqdefault.jpg" class="w-full h-full object-cover" alt="From Gambler to Preventionist - Charles Ahern thumbnail">
+        </div>
+        <div>
+          <p class="text-xs text-[#767676] mb-1">June 12, 2026</p>
+          <h3 class="font-bold text-black text-[15px] mb-2">2 - From Gambler to Preventionist - Charles Ahern IV</h3>
+          <p class="text-sm text-[#767676] leading-relaxed mb-3">Charles Ahern IV, a former gambler and Project Coordinator at Stop Predatory Gambling, joins the show to discuss his transition from gambling to advocacy, industry terminology, mobile betting accessibility, and government conflicts of interest around gambling regulation...</p>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://open.spotify.com/episode/64p3LznaggOYEqJ1R7gdwF" class="btn-pop inline-flex items-center gap-1.5 bg-green-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-green-600">Spotify</a>
+            <a href="https://podcasts.apple.com/us/podcast/from-gambler-to-preventionist-charles-ahern-iv/id1890940874?i=1000772418034" class="btn-pop inline-flex items-center gap-1.5 bg-purple-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-purple-600">Apple Podcasts</a>
+            <a href="https://www.youtube.com/watch?v=T4T4KmrCbjE" class="btn-pop inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-red-700">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Episode 1 -->
+      <div class="flex gap-5 pb-6 border-b border-black/5 reveal card-hover rounded-xl p-3 -m-3">
+        <div class="img-zoom rounded-lg w-[150px] h-[150px] flex-shrink-0">
+          <img src="https://i.ytimg.com/vi/dY-Hy-LE3zA/hqdefault.jpg" class="w-full h-full object-cover" alt="The Odds Against Us Ep. 1 with guest Ben Spooner thumbnail">
+        </div>
+        <div>
+          <p class="text-xs text-[#767676] mb-1">April 5, 2026</p>
+          <h3 class="font-bold text-black text-[15px] mb-2">1 - Youth Gambling Is a Public Health Issue | Ben Spooner</h3>
+          <p class="text-sm text-[#767676] leading-relaxed mb-3">Ben Spooner of the Education Development Center joins to explore gambling through a public health lens, examining the sports betting surge, platform design mechanics that encourage engagement, and youth vulnerability in digital environments...</p>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://open.spotify.com/episode/0ZmGab3HR3dAXYgchTgdby" class="btn-pop inline-flex items-center gap-1.5 bg-green-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-green-600">Spotify</a>
+            <a href="https://podcasts.apple.com/us/podcast/youth-gambling-is-a-public-health-issue-ben-spooner/id1890940874?i=1000759440759" class="btn-pop inline-flex items-center gap-1.5 bg-purple-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-purple-600">Apple Podcasts</a>
+            <a href="https://www.youtube.com/watch?v=dY-Hy-LE3zA" class="btn-pop inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-red-700">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-black/5 py-10 px-6 md:px-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <h3 class="font-black text-lg text-black">THE ODDS AGAINST US</h3>
+        <p class="text-sm text-[#767676] mt-2 max-w-xs">Examining how modern gambling environments are shaping youth behavior.</p>
+      </div>
+      <div class="text-sm">
+        <p class="text-black font-semibold mb-2">Contact</p>
+        <a href="mailto:connorhuynh27@gmail.com" class="block text-[#767676] hover:text-black transition">connorhuynh27@gmail.com</a>
+      </div>
+    </div>
+    <p class="max-w-6xl mx-auto text-xs text-[#767676] mt-8">&copy; 2026 The Odds Against Us Podcast</p>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  });
+</script>

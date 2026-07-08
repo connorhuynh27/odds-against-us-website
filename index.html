@@ -1,0 +1,231 @@
+<meta charset="UTF-8">
+<title>The Odds Against Us</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1.in-view { transition-delay: .1s; }
+  .reveal-delay-2.in-view { transition-delay: .2s; }
+  .reveal-delay-3.in-view { transition-delay: .3s; }
+
+  .grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E"); }
+
+  .hero-vignette {
+    background:
+      radial-gradient(circle at 50% 45%, transparent 45%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0.65) 100%),
+      linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 18%, transparent 78%, rgba(0,0,0,0.75));
+  }
+
+  .nav-link { position: relative; }
+  .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: currentColor; transition: width .25s ease; }
+  .nav-link:hover::after { width: 100%; }
+
+  .card-hover { transition: transform .3s ease, box-shadow .3s ease; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15); }
+
+  .img-zoom { overflow: hidden; }
+  .img-zoom img { transition: transform .5s ease; }
+  .img-zoom:hover img { transform: scale(1.08); }
+
+  .btn-pop { transition: transform .2s ease, box-shadow .2s ease; }
+  .btn-pop:hover { transform: scale(1.05); }
+
+  @keyframes bounce-down { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+  .bounce { animation: bounce-down 2s ease-in-out infinite; }
+
+  #site-nav { transition: background-color .3s ease, backdrop-filter .3s ease, box-shadow .3s ease; }
+
+  .mesh-bg {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,217,0,0.18), transparent 40%),
+      radial-gradient(circle at 80% 15%, rgba(220,38,38,0.18), transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(255,217,0,0.12), transparent 50%),
+      #0a0a0a;
+  }
+  @keyframes drift { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(2%,-2%) scale(1.05); } 100% { transform: translate(0,0) scale(1); } }
+  .mesh-bg { animation: drift 18s ease-in-out infinite; }
+</style>
+
+<div class="min-h-screen bg-white text-[#767676] overflow-x-hidden">
+
+  <!-- Nav -->
+  <nav id="site-nav" class="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-10 py-5">
+    <a href="index.html" class="font-black tracking-tight text-white" id="nav-brand">THE ODDS AGAINST US</a>
+    <div class="hidden sm:flex items-center gap-8 text-[13px] font-semibold tracking-wide uppercase text-white" id="nav-links">
+      <a href="index.html" class="nav-link hover:opacity-70">Home</a>
+      <a href="episodes.html" class="nav-link hover:opacity-70">Episodes</a>
+      <a href="info.html" class="nav-link hover:opacity-70">Info</a>
+      <a href="reviews.html" class="nav-link hover:opacity-70">Reviews</a>
+      <a href="contact.html" class="nav-link hover:opacity-70">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Cover / Hero -->
+  <div class="relative w-full h-screen min-h-[600px] overflow-hidden bg-gradient-to-br from-[#1a1a1a] via-[#101010] to-black">
+    <div class="absolute inset-0 hero-vignette"></div>
+    <div class="absolute inset-0 grain"></div>
+
+    <div class="relative z-10 h-full max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] items-center gap-10">
+      <div class="text-left">
+        <p class="text-xs font-bold tracking-[0.2em] text-[#FFD900] uppercase mb-5 reveal">A Podcast on Gambling Awareness</p>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 reveal reveal-delay-1">
+          The <span class="italic text-[#FFD900]">hidden forces</span><br>shaping youth gambling
+        </h1>
+        <p class="text-white/70 text-[15px] md:text-lg leading-relaxed mb-10 max-w-md reveal reveal-delay-2">
+          Examining how modern gambling environments are shaping youth behavior &mdash; through interviews with experts, advocates, and people with personal experience in the space.
+        </p>
+        <div class="flex flex-wrap gap-4 reveal reveal-delay-3">
+          <a href="https://open.spotify.com/show/7IZAwHh6cpKbdDobrGSlhC" class="btn-pop inline-flex items-center gap-2 bg-[#FFD900] text-black text-sm font-bold px-7 py-3.5 rounded-full shadow-lg">&#9654; Listen Now</a>
+          <a href="episodes.html" class="btn-pop inline-flex items-center gap-2 border border-white/30 text-white text-sm font-bold px-7 py-3.5 rounded-full hover:bg-white/10">Watch Episodes</a>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center justify-center reveal reveal-delay-2">
+        <img src="images/podcast-cover-art.jpg" class="w-full max-w-[400px] h-auto rounded-3xl shadow-2xl" alt="The Odds Against Us podcast cover art">
+      </div>
+    </div>
+
+    <a href="#content" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/60 hover:text-white flex flex-col items-center gap-2 text-xs uppercase tracking-widest">
+      Scroll
+      <span class="bounce">&#8595;</span>
+    </a>
+  </div>
+
+  <!-- Main content -->
+  <div id="content" class="max-w-6xl mx-auto px-6 md:px-10 py-20 grid grid-cols-1 md:grid-cols-[1fr_320px] gap-14">
+
+    <!-- Episodes column -->
+    <div>
+      <div class="flex items-center justify-between mb-6 reveal">
+        <h2 class="text-2xl font-bold text-black">Recent Episodes</h2>
+        <a href="episodes.html" class="group text-[#FFD900] font-semibold text-sm flex items-center gap-1">View all <span class="transition-transform group-hover:translate-x-1">&rarr;</span></a>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Episode 1 -->
+        <div class="flex gap-5 pb-6 border-b border-black/5 reveal card-hover rounded-xl p-3 -m-3">
+          <div class="img-zoom rounded-lg w-[150px] h-[150px] flex-shrink-0">
+            <img src="https://i.ytimg.com/vi/T4T4KmrCbjE/hqdefault.jpg" class="w-full h-full object-cover" alt="From Gambler to Preventionist - Charles Ahern thumbnail">
+          </div>
+          <div>
+            <p class="text-xs text-[#767676] mb-1">June 12, 2026</p>
+            <h3 class="font-bold text-black text-[15px] mb-2">2 - From Gambler to Preventionist - Charles Ahern IV</h3>
+            <p class="text-sm text-[#767676] leading-relaxed mb-3">Charles Ahern IV, a former gambler and Project Coordinator at Stop Predatory Gambling, joins the show to discuss his transition from gambling to advocacy, industry terminology, mobile betting accessibility, and government conflicts of interest around gambling regulation...</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://open.spotify.com/episode/64p3LznaggOYEqJ1R7gdwF" class="btn-pop inline-flex items-center gap-1.5 bg-green-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-green-600">Spotify</a>
+              <a href="https://podcasts.apple.com/us/podcast/from-gambler-to-preventionist-charles-ahern-iv/id1890940874?i=1000772418034" class="btn-pop inline-flex items-center gap-1.5 bg-purple-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-purple-600">Apple Podcasts</a>
+              <a href="https://www.youtube.com/watch?v=T4T4KmrCbjE" class="btn-pop inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-red-700">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Episode 2 -->
+        <div class="flex gap-5 pb-6 border-b border-black/5 reveal card-hover rounded-xl p-3 -m-3">
+          <div class="img-zoom rounded-lg w-[150px] h-[150px] flex-shrink-0">
+            <img src="https://i.ytimg.com/vi/dY-Hy-LE3zA/hqdefault.jpg" class="w-full h-full object-cover" alt="The Odds Against Us Ep. 1 with guest Ben Spooner thumbnail">
+          </div>
+          <div>
+            <p class="text-xs text-[#767676] mb-1">April 5, 2026</p>
+            <h3 class="font-bold text-black text-[15px] mb-2">1 - Youth Gambling Is a Public Health Issue | Ben Spooner</h3>
+            <p class="text-sm text-[#767676] leading-relaxed mb-3">Ben Spooner of the Education Development Center joins to explore gambling through a public health lens, examining the sports betting surge, platform design mechanics that encourage engagement, and youth vulnerability in digital environments...</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://open.spotify.com/episode/0ZmGab3HR3dAXYgchTgdby" class="btn-pop inline-flex items-center gap-1.5 bg-green-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-green-600">Spotify</a>
+              <a href="https://podcasts.apple.com/us/podcast/youth-gambling-is-a-public-health-issue-ben-spooner/id1890940874?i=1000759440759" class="btn-pop inline-flex items-center gap-1.5 bg-purple-500 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-purple-600">Apple Podcasts</a>
+              <a href="https://www.youtube.com/watch?v=dY-Hy-LE3zA" class="btn-pop inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-red-700">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 reveal">
+        <a href="episodes.html" class="btn-pop inline-block bg-black text-white font-semibold text-sm px-6 py-3 rounded-full">View All Episodes</a>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="space-y-8">
+
+      <!-- Info -->
+      <div class="reveal">
+        <p class="text-xs font-bold tracking-wide text-black mb-3">ABOUT THE SHOW</p>
+        <p class="text-sm text-[#767676] leading-relaxed">A podcast examining how modern gambling environments are shaping youth behavior, through interviews with experts, advocates, and people with personal experience in the space. Hosted by Connor Huynh.</p>
+        <a href="info.html" class="group inline-flex items-center gap-1 mt-3 text-sm font-semibold text-[#FFD900]">Learn more <span class="transition-transform group-hover:translate-x-1">&rarr;</span></a>
+      </div>
+
+      <!-- Listen on -->
+      <div class="reveal">
+        <p class="text-xs font-bold tracking-wide text-black mb-3">LISTEN ON</p>
+        <div class="space-y-3 text-sm">
+          <a href="https://open.spotify.com/show/7IZAwHh6cpKbdDobrGSlhC" class="flex items-center gap-2 text-black font-semibold hover:text-[#FFD900] transition"><span class="w-5 h-5 bg-green-500 rounded-full inline-block"></span>Spotify</a>
+          <a href="https://podcasts.apple.com/us/podcast/the-odds-against-us/id1890940874" class="flex items-center gap-2 text-black font-semibold hover:text-[#FFD900] transition"><span class="w-5 h-5 bg-purple-500 rounded-full inline-block"></span>Apple Podcasts</a>
+          <a href="https://www.youtube.com/@the_odds_against_us" class="flex items-center gap-2 text-black font-semibold hover:text-[#FFD900] transition"><span class="w-5 h-5 bg-red-600 rounded-full inline-block"></span>YouTube</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Photo section -->
+  <div class="max-w-6xl mx-auto px-6 md:px-10 pb-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="img-zoom rounded-2xl overflow-hidden shadow-lg reveal aspect-[4/3]">
+      <img src="images/sportsbook-app.jpg" class="w-full h-full object-cover" alt="A sports betting app open on a phone">
+    </div>
+    <div class="reveal reveal-delay-1 flex flex-col justify-center">
+      <p class="text-xs font-bold tracking-widest text-[#FFD900] uppercase mb-3">&mdash; Behind the Topic</p>
+      <h3 class="text-2xl font-black text-black mb-4">Always open, always in your pocket</h3>
+      <p class="text-[15px] leading-relaxed">Gambling used to require a trip to the casino. Now it's a notification away &mdash; open 24/7, always on the phone in your pocket, and designed to pull you back in. That constant access is exactly what makes modern platforms more addictive, and more dangerous for young people, than the casino floor ever was.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-black/5 py-10 px-6 md:px-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <h3 class="font-black text-lg text-black">THE ODDS AGAINST US</h3>
+        <p class="text-sm text-[#767676] mt-2 max-w-xs">Examining how modern gambling environments are shaping youth behavior.</p>
+      </div>
+      <div class="text-sm">
+        <p class="text-black font-semibold mb-2">Contact</p>
+        <a href="mailto:connorhuynh27@gmail.com" class="block text-[#767676] hover:text-black transition">connorhuynh27@gmail.com</a>
+      </div>
+    </div>
+    <p class="max-w-6xl mx-auto text-xs text-[#767676] mt-8">&copy; 2026 The Odds Against Us Podcast</p>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+
+    const nav = document.getElementById('site-nav');
+    const brand = document.getElementById('nav-brand');
+    const links = document.getElementById('nav-links');
+    function updateNav() {
+      if (window.scrollY > window.innerHeight - 100) {
+        nav.classList.add('bg-white/90', 'backdrop-blur', 'shadow-sm');
+        brand.classList.remove('text-white');
+        brand.classList.add('text-black');
+        links.classList.remove('text-white');
+        links.classList.add('text-black');
+      } else {
+        nav.classList.remove('bg-white/90', 'backdrop-blur', 'shadow-sm');
+        brand.classList.add('text-white');
+        brand.classList.remove('text-black');
+        links.classList.add('text-white');
+        links.classList.remove('text-black');
+      }
+    }
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  });
+</script>
